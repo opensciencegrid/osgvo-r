@@ -13,6 +13,14 @@ RUN VERSION=3.5.0 && \
     cd /tmp && \
     rm -rf R-*
 
+RUN PATH=/opt/R/bin:$PATH && \
+    echo "r <- getOption('repos'); r['CRAN'] <- 'http://cran.us.r-project.org'; options(repos = r);" > ~/.Rprofile && \
+    Rscript -e "install.packages('gdata')" && \
+    Rscript -e "install.packages('tidyverse')" && \
+    Rscript -e "install.packages('OpenMx')" && \
+    Rscript -e "install.packages('sna')" && \
+    Rscript -e "install.packages('statnet')"
+
 # build info
 RUN echo "Timestamp:" `date --utc` | tee /image-build-info.txt
 
