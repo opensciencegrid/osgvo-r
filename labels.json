@@ -1,0 +1,7 @@
+{
+    "opensciencegrid.name": "R",
+    "opensciencegrid.description": "Example for building R images",
+    "opensciencegrid.url": "https://www.r-project.org/",
+    "opensciencegrid.category": "Languages",
+    "opensciencegrid.definition_url": "https://github.com/opensciencegrid/osgvo-r"
+}

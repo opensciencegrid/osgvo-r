@@ -1,5 +1,11 @@
 FROM opensciencegrid/osgvo-el7
 
+LABEL opensciencegrid.name="R"
+LABEL opensciencegrid.description="Example for building R images"
+LABEL opensciencegrid.url="https://www.r-project.org/"
+LABEL opensciencegrid.category="Languages"
+LABEL opensciencegrid.definition_url="https://github.com/opensciencegrid/osgvo-r"
+
 RUN yum install -y libcurl-devel
 
 RUN VERSION=3.5.0 && \
@@ -20,6 +26,8 @@ RUN PATH=/opt/R/bin:$PATH && \
     Rscript -e "install.packages('OpenMx')" && \
     Rscript -e "install.packages('sna')" && \
     Rscript -e "install.packages('statnet')"
+
+COPY labels.json /.singularity.d/
 
 # build info
 RUN echo "Timestamp:" `date --utc` | tee /image-build-info.txt
