@@ -8,9 +8,9 @@ LABEL opensciencegrid.definition_url="https://github.com/opensciencegrid/osgvo-r
 
 RUN yum install -y libcurl-devel
 
-RUN VERSION=3.5.0 && \
+RUN VERSION=4.0.2 && \
     cd /tmp && \
-    wget -nv https://cloud.r-project.org/src/base/R-3/R-$VERSION.tar.gz && \
+    wget -nv https://cloud.r-project.org/src/base/R-4/R-$VERSION.tar.gz && \
     tar xzf R-$VERSION.tar.gz && \
     cd R-$VERSION && \
     ./configure --prefix=/opt/R && \
