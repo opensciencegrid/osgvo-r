@@ -25,7 +25,8 @@ RUN PATH=/opt/R/bin:$PATH && \
     Rscript -e "install.packages('tidyverse')" && \
     Rscript -e "install.packages('OpenMx')" && \
     Rscript -e "install.packages('sna')" && \
-    Rscript -e "install.packages('statnet')"
+    Rscript -e "install.packages('statnet')" && \
+    Rscript -e "install.packages('littler')"
 
 COPY labels.json /.singularity.d/
 
