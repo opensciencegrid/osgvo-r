@@ -6,7 +6,8 @@ LABEL opensciencegrid.url="https://www.r-project.org/"
 LABEL opensciencegrid.category="Languages"
 LABEL opensciencegrid.definition_url="https://github.com/opensciencegrid/osgvo-r"
 
-RUN yum install -y libcurl-devel
+RUN yum install -y libcurl-devel && \
+    yum remove -y R R-core R-java-devel
 
 RUN VERSION=4.0.2 && \
     cd /tmp && \
@@ -29,6 +30,7 @@ RUN PATH=/opt/R/bin:$PATH && \
     Rscript -e "install.packages('littler')"
 
 COPY labels.json /.singularity.d/
+COPY 95-R-env.sh /.singularity.d/env/95-R-env.sh
 
 # build info
 RUN echo "Timestamp:" `date --utc` | tee /image-build-info.txt
